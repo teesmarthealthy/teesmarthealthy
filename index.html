@@ -1,84 +1,35 @@
-
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ตัวอย่างเว็บไซต์</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #eee;
-            padding: 0.5rem 0;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        nav li {
-            display: inline;
-            margin: 0 1rem;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        main {
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-    </style>
+    <title>เว็บไซต์ดูแลสุขภาพ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>ชื่อเว็บไซต์ของคุณ</h1>
+        <h1>เว็บไซต์ดูแลสุขภาพ</h1>
+        <nav>
+            <ul>
+                <li><a href="#">หน้าแรก</a></li>
+                <li><a href="#">บทความ</a></li>
+                <li><a href="#">สูตรอาหาร</a></li>
+                <li><a href="#">วิดีโอ</a></li>
+                <li><a href="#">ติดต่อ</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#">หน้าแรก</a></li>
-            <li><a href="#">เกี่ยวกับเรา</a></li>
-            <li><a href="#">บริการ</a></li>
-            <li><a href="#">ติดต่อ</a></li>
-        </ul>
-    </nav>
     <main>
-        <section>
-            <h2>หัวข้อหลัก</h2>
-            <p>เนื้อหาของส่วนนี้...</p>
+        <section id="featured-images">
+            <h2>ภาพเด่น</h2>
+            <div id="image-gallery">
+                </div>
         </section>
-        <section>
-            <h2>หัวข้อรอง</h2>
-            <p>เนื้อหาของส่วนนี้...</p>
-        </section>
+        <section id="articles">
+            <h2>บทความล่าสุด</h2>
+            </section>
     </main>
     <footer>
-        <p>Copyright &copy; 2023 ชื่อเว็บไซต์ของคุณ</p>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

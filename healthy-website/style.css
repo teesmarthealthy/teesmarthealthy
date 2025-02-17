@@ -1,0 +1,61 @@
+.image-container {
+    display: inline-block; /* แสดงรูปภาพเรียงกันในแนวนอน */
+    margin: 10px; /* ระยะห่างระหว่างรูปภาพ */
+    width: 300px; /* ขนาดความกว้างของรูปภาพ */
+    overflow: hidden; /* ป้องกันรูปภาพล้นออกมา */
+}
+
+.image-container img {
+    width: 100%; /* ทำให้รูปภาพเต็ม container */
+    height: auto;
+    display: block; /* ป้องกันช่องว่างด้านล่างรูปภาพ */
+}
+
+#image-gallery {
+    text-align: center; /* จัดรูปภาพให้อยู่ตรงกลาง */
+}
+
+header {
+    background-color: #4CAF50; /* สีพื้นหลังของ header */
+    color: white; /* สีตัวอักษรใน header */
+    padding: 10px 0; /* ระยะห่างภายใน header */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
+}
+
+nav ul {
+    list-style-type: none; /* ลบจุดหน้ารายการ */
+    padding: 0; /* ลบระยะห่างภายใน */
+}
+
+nav ul li {
+    display: inline; /* แสดงรายการในแนวนอน */
+    margin: 0 15px; /* ระยะห่างระหว่างรายการ */
+}
+
+nav ul li a {
+    color: white; /* สีตัวอักษรของลิงก์ */
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+}
+
+main {
+    padding: 20px; /* ระยะห่างภายใน main */
+}
+
+footer {
+    text-align: center; /* จัดข้อความใน footer ให้อยู่กลาง */
+    padding: 10px 0; /* ระยะห่างภายใน footer */
+    background-color: #f1f1f1; /* สีพื้นหลังของ footer */
+}
+
+h2 {
+    color: #4CAF50; /* สีหัวข้อ */
+}
+
+.article, .recipe, .video {
+    margin-bottom: 20px; /* ระยะห่างระหว่างแต่ละบทความ, สูตร, หรือวิดีโอ */
+}
+
+.article img, .recipe img, .video img {
+    max-width: 100%; /* ทำให้รูปภาพไม่เกินขนาดของ container */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+}

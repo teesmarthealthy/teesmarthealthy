@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Videos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Health Videos by Tee Smart Healthy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="recipes.html">สูตรอาหาร</a></li>
+                <li><a href="videos.html">วิดีโอ</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="video-gallery">
+            <h2>วิดีโอเพื่อสุขภาพ</h2>
+            <div id="videos"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane'; // API key ของคุณ
+        const videoGallery = document.getElementById('videos');
+
+        async function getPexelsVideos(query, perPage = 6) {
+            try {
+                const response = await fetch(`https://api.pexels.com/videos/search?query=${query}&per_page=${perPage}`, {
+                    headers: {
+                        'Authorization': pexelsApiKey
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.videos;
+            } catch (error) {
+                console.error("Error fetching videos:", error);
+                return [];
+            }
+        }
+
+        function displayVideos(videos) {
+            videoGallery.innerHTML = '';
+
+            videos.forEach(video => {
+                const videoContainer = document.createElement('div');
+                videoContainer.classList.add('video-container');
+
+                const title = document.createElement('h3');
+                title.textContent = video.title;
+
+                const videoElement = document.createElement('video');
+                videoElement.src = video.video_files[0].link;
+                videoElement.controls = true;
+                videoElement.width = 300;
+
+                const description = document.createElement('p');
+                description.textContent = video.description || 'No description available';
+
+                videoContainer.appendChild(title);
+                videoContainer.appendChild(videoElement);
+                videoContainer.appendChild(description);
+                videoGallery.appendChild(videoContainer);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const healthVideos = await getPexelsVideos('health');
+            displayVideos(healthVideos);
+        });
+    </script>
+</body>
+</html>

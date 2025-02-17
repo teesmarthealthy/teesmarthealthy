@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทความสุขภาพ - TeeSmartHealthy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <h1>บทความสุขภาพ</h1>
+        <div class="grid-container" id="articles-grid">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module">
+        import { fetchImages } from '/src/assets/js/api.js';
+
+        async function loadArticles() {
+            const images = await fetchImages('health wellness', 9);
+            const articlesGrid = document.getElementById('articles-grid');
+            
+            images.forEach(photo => {
+                const article = document.createElement('article');
+                article.className = 'grid-item';
+                article.innerHTML = `
+                    <img src="${photo.src.medium}" alt="${photo.alt}">
+                    <div class="grid-item-content">
+                        <h3>บทความเกี่ยวกับสุขภาพ</h3>
+                        <p>เนื้อหาบทความเกี่ยวกับการดูแลสุขภาพ...</p>
+                        <a href="#" class="read-more">อ่านเพิ่มเติม</a>
+                    </div>
+                `;
+                articlesGrid.appendChild(article);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadArticles);
+    </script>
+</body>
+</html>

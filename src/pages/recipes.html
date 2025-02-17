@@ -1,3 +1,4 @@
+.html -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -12,57 +13,115 @@
     <div id="header-placeholder"></div>
 
     <main class="main-content">
-        <h1>สูตรอาหารเพื่อสุขภาพ</h1>
-        <div class="grid-container" id="recipes-grid">
-            <!-- Content will be loaded dynamically -->
-        </div>
+        <section class="hero-section">
+            <h1>สูตรอาหารเพื่อสุขภาพ</h1>
+            <p>รวมสูตรอาหารคลีน ทำง่าย อร่อย ได้ประโยชน์</p>
+        </section>
+
+        <section class="recipes-filters">
+            <div class="search-box">
+                <input type="text" id="recipe-search" placeholder="ค้นหาสูตรอาหาร...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">ทั้งหมด</button>
+                <button class="filter-btn" data-category="breakfast">อาหารเช้า</button>
+                <button class="filter-btn" data-category="lunch">อาหารกลางวัน</button>
+                <button class="filter-btn" data-category="dinner">อาหารเย็น</button>
+            </div>
+        </section>
+
+        <div class="grid-container" id="recipes-grid"></div>
     </main>
 
     <div id="footer-placeholder"></div>
 
     <script type="module">
         import { fetchImages } from '/src/assets/js/api.js';
+        import { recipes } from '/src/assets/js/recipes-data.js';
 
-        const recipes = [
-            {
-                title: "สลัดผักรวมมิตร",
-                description: "สลัดผักสดรวมหลากหลายชนิด พร้อมน้ำสลัดสูตรพิเศษ",
-                calories: "150 แคลอรี่",
-                time: "15 นาที"
-            },
-            {
-                title: "สมูทตี้ผักผลไม้",
-                description: "เครื่องดื่มเพื่อสุขภาพ อุดมไปด้วยวิตามิน",
-                calories: "120 แคลอรี่",
-                time: "5 นาที"
-            },
-            // เพิ่มสูตรอาหารอื่นๆ ตามต้องการ
-        ];
-
-        async function loadRecipes() {
-            const images = await fetchImages('healthy food recipe', recipes.length);
+        async function loadRecipes(category = 'all') {
             const recipesGrid = document.getElementById('recipes-grid');
+            recipesGrid.innerHTML = '';
             
-            recipes.forEach((recipe, index) => {
+            const filteredRecipes = category === 'all' 
+                ? recipes 
+                : recipes.filter(r => r.category === category);
+
+            for (const recipe of filteredRecipes) {
+                const images = await fetchImages(recipe.image_query, 1);
                 const recipeElement = document.createElement('article');
-                recipeElement.className = 'grid-item';
+                recipeElement.className = 'grid-item recipe-card';
                 recipeElement.innerHTML = `
-                    <img src="${images[index].src.medium}" alt="${images[index].alt}">
+                    <img src="${images[0].src.large}" alt="${recipe.title}" loading="lazy">
                     <div class="grid-item-content">
                         <h3>${recipe.title}</h3>
                         <p>${recipe.description}</p>
-                        <div class="recipe-info">
-                            <span><i class="fas fa-fire"></i> ${recipe.calories}</span>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-fire"></i> ${recipe.nutrition.calories}</span>
                             <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-signal"></i> ${recipe.difficulty}</span>
                         </div>
-                        <a href="#" class="read-more">ดูสูตรอาหาร</a>
+                        <div class="recipe-details">
+                            <h4>วัตถุดิบ</h4>
+                            <ul>
+                                ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                            </ul>
+                            <h4>วิธีทำ</h4>
+                            <ol>
+                                ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+                            </ol>
+                            <div class="nutrition-info">
+                                <h4>คุณค่าทางโภชนาการ (ต่อ 1 ที่)</h4>
+                                <ul>
+                                    <li>แคลอรี่: ${recipe.nutrition.calories}</li>
+                                    <li>โปรตีน: ${recipe.nutrition.protein}</li>
+                                    <li>ไขมัน: ${recipe.nutrition.fat}</li>
+                                    <li>คาร์บ: ${recipe.nutrition.carbs}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="view-recipe-btn" onclick="toggleRecipeDetails(this)">
+                            ดูสูตรอาหาร
+                        </button>
                     </div>
                 `;
                 recipesGrid.appendChild(recipeElement);
-            });
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', loadRecipes);
+        window.toggleRecipeDetails = function(button) {
+            const details = button.previousElementSibling;
+            details.classList.toggle('show');
+            button.textContent = details.classList.contains('show') ? 'ซ่อนสูตร' : 'ดูสูตรอาหาร';
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRecipes();
+            
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => 
+                        b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    loadRecipes(e.target.dataset.category);
+                });
+            });
+
+            // Search functionality
+            document.getElementById('recipe-search').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                document.querySelectorAll('.recipe-card').forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const desc = card.querySelector('p').textContent.toLowerCase();
+                    card.style.display = 
+                        title.includes(searchTerm) || desc.includes(searchTerm) 
+                        ? 'block' 
+                        : 'none';
+                });
+            });
+        });
     </script>
 </body>
 </html>

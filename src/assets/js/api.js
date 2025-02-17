@@ -1,6 +1,6 @@
-const PEXELS_API_KEY = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxaneY'; // ใส่ API key ของคุณที่นี่
+const PEXELS_API_KEY = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane';
 
-async function fetchImages(query, per_page = 9) {
+export async function fetchImages(query, per_page = 9) {
     try {
         const response = await fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=${per_page}`, {
             headers: {
@@ -15,7 +15,7 @@ async function fetchImages(query, per_page = 9) {
     }
 }
 
-async function fetchVideos(query, per_page = 6) {
+export async function fetchVideos(query, per_page = 6) {
     try {
         const response = await fetch(`https://api.pexels.com/videos/search?query=${query}&per_page=${per_page}`, {
             headers: {
@@ -29,5 +29,3 @@ async function fetchVideos(query, per_page = 6) {
         return [];
     }
 }
-
-export { fetchImages, fetchVideos };

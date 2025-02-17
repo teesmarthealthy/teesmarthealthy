@@ -1,112 +1,43 @@
-src/pages/recipes.html -->
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สูตรอาหารเพื่อสุขภาพ - TeeSmartHealthy</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Recipes - Health Website</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../js/api.js" defer></script>
+    <script src="../js/recipes.js" defer></script>
 </head>
 <body>
     <header>
+        <h1>Healthy Recipes</h1>
         <nav>
             <ul>
-                <li><a href="../../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความสุขภาพ</a></li>
-                <li><a href="recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
-                <li><a href="videos.html">วิดีโอสุขภาพ</a></li>
-                <li><a href="contact.html">ติดต่อเรา</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section class="page-hero">
-            <h1>สูตรอาหารเพื่อสุขภาพ</h1>
-            <p>รวมสูตรอาหารเพื่อสุขภาพที่ทำง่าย อร่อย และมีประโยชน์</p>
-        </section>
-
-        <section class="recipe-categories">
-            <h2>หมวดหมู่อาหารเพื่อสุขภาพ</h2>
-            <div class="category-grid">
-                <div class="category-card" data-category="breakfast">
-                    <img src="path/to/breakfast-image.jpg" alt="อาหารเช้าเพื่อสุขภาพ">
-                    <h3>อาหารเช้า</h3>
-                </div>
-                <div class="category-card" data-category="lunch">
-                    <img src="path/to/lunch-image.jpg" alt="อาหารกลางวันเพื่อสุขภาพ">
-                    <h3>อาหารกลางวัน</h3>
-                </div>
-                <div class="category-card" data-category="dinner">
-                    <img src="path/to/dinner-image.jpg" alt="อาหารเย็นเพื่อสุขภาพ">
-                    <h3>อาหารเย็น</h3>
-                </div>
-                <div class="category-card" data-category="snacks">
-                    <img src="path/to/snacks-image.jpg" alt="ของว่างเพื่อสุขภาพ">
-                    <h3>ของว่าง</h3>
-                </div>
+        <section id="recipes-gallery">
+            <h2>Delicious and Healthy Recipes</h2>
+            <div id="recipe-images">
+                <!-- Images will be dynamically inserted here -->
             </div>
         </section>
-
-        <section class="featured-recipes">
-            <h2>สูตรอาหารแนะนำ</h2>
-            <div id="recipe-gallery" class="gallery-container">
-                <!-- Gallery items will be populated by JavaScript -->
-            </div>
-            <div class="load-more-container">
-                <button id="load-more" 
-                        class="load-more-btn"
-                        data-gallery-id="recipe-gallery"
-                        data-search-query="healthy food recipes">
-                    โหลดเพิ่มเติม
-                </button>
-            </div>
-        </section>
-
-        <section class="latest-recipes">
-            <h2>สูตรอาหารล่าสุด</h2>
-            <div class="recipe-grid" id="latest-recipes">
-                <!-- Latest recipes will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="recipe-tips">
-            <h2>เคล็ดลับการทำอาหารเพื่อสุขภาพ</h2>
-            <div class="tips-container">
-                <article class="tip-card">
-                    <h3>การเลือกวัตถุดิบ</h3>
-                    <p>เลือกวัตถุดิบที่สด สะอาด และมีประโยชน์ต่อสุขภาพ</p>
-                </article>
-                <article class="tip-card">
-                    <h3>วิธีการปรุง</h3>
-                    <p>เน้นการนึ่ง ต้ม อบ แทนการทอด</p>
-                </article>
-                <article class="tip-card">
-                    <h3>การจัดเก็บ</h3>
-                    <p>วิธีการเก็บรักษาวัตถุดิบให้คงความสด</p>
-                </article>
+        <section id="recipe-content">
+            <h2>Featured Recipes</h2>
+            <div id="recipes-list">
+                <!-- Recipe content will be dynamically inserted here -->
             </div>
         </section>
     </main>
-
     <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-            </div>
-            <div class="social-links">
-                <h3>ติดตามเรา</h3>
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">YouTube</a>
-                <a href="#" target="_blank">Instagram</a>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2024 TeeSmartHealthy. All rights reserved.</p>
+        <p>Contact us at: teesmarthealthy@gmail.com</p>
+        <p>Copyright &copy; 2023 Health Website</p>
     </footer>
-
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/gallery.js"></script>
-    <script type="module" src="../js/main.js"></script>
 </body>
 </html>

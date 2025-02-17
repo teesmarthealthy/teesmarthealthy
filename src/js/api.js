@@ -1,95 +1,74 @@
-const PEXELS_API_KEY = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane'; // Replace with your Pexels API key
+// filepath: /teesmarthealthy/teesmarthealthy/src/js/api.js
 
-class ContentAPI {
-    constructor() {
-        this.pexelsClient = {
+const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane'; // Your Pexels API key
+
+// Function to fetch images from Pexels API based on a query
+async function fetchImages(query, perPage = 9) {
+    try {
+        const response = await fetch(`https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}`, {
             headers: {
-                'Authorization': PEXELS_API_KEY
+                'Authorization': pexelsApiKey
             }
-        };
-        this.baseUrl = 'https://api.pexels.com/v1';
-    }
+        });
 
-    // Fetch featured articles with related images
-    async getFeaturedArticles() {
-        try {
-            const response = await fetch('assets/content/articles.json');
-            const articles = await response.json();
-            
-            // Fetch related images for each article
-            const articlesWithImages = await Promise.all(articles.map(async article => {
-                const imageResponse = await this.searchPexelsImages(article.keywords[0], 1);
-                return {
-                    ...article,
-                    image: imageResponse.photos[0].src.medium
-                };
-            }));
-
-            return articlesWithImages;
-        } catch (error) {
-            console.error('Error fetching articles:', error);
-            return [];
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }
 
-    // Fetch recipes with related images
-    async getLatestRecipes() {
-        try {
-            const response = await fetch('assets/content/recipes.json');
-            const recipes = await response.json();
-            
-            // Fetch related images for each recipe
-            const recipesWithImages = await Promise.all(recipes.map(async recipe => {
-                const imageResponse = await this.searchPexelsImages(recipe.keywords[0], 1);
-                return {
-                    ...recipe,
-                    image: imageResponse.photos[0].src.medium
-                };
-            }));
-
-            return recipesWithImages;
-        } catch (error) {
-            console.error('Error fetching recipes:', error);
-            return [];
-        }
-    }
-
-    // Search Pexels images
-    async searchPexelsImages(query, perPage = 1) {
-        try {
-            const response = await fetch(
-                `${this.baseUrl}/search?query=${query}&per_page=${perPage}`,
-                this.pexelsClient
-            );
-            return await response.json();
-        } catch (error) {
-            console.error('Error fetching Pexels images:', error);
-            return { photos: [] };
-        }
-    }
-
-    // Newsletter subscription
-    async subscribeNewsletter(email) {
-        try {
-            // Implement newsletter subscription logic here
-            return { success: true, message: 'Successfully subscribed!' };
-        } catch (error) {
-            console.error('Error subscribing to newsletter:', error);
-            return { success: false, message: 'Subscription failed. Please try again.' };
-        }
-    }
-
-    // Contact form submission
-    async submitContactForm(formData) {
-        try {
-            // Implement contact form submission logic here
-            return { success: true, message: 'Message sent successfully!' };
-        } catch (error) {
-            console.error('Error submitting contact form:', error);
-            return { success: false, message: 'Failed to send message. Please try again.' };
-        }
+        const data = await response.json();
+        return data.photos;
+    } catch (error) {
+        console.error("Error fetching images:", error);
+        return [];
     }
 }
 
-// Export instance
-export const contentAPI = new ContentAPI();
+// Function to fetch articles from a hypothetical API
+async function fetchArticles() {
+    // Placeholder for fetching articles logic
+    // This function should return an array of articles
+    return [
+        {
+            title: "Healthy Eating",
+            content: "Eating healthy is crucial for maintaining a balanced lifestyle.",
+            image: await fetchImages('healthy food', 1)
+        },
+        {
+            title: "Exercise Benefits",
+            content: "Regular exercise can improve your overall health and fitness.",
+            image: await fetchImages('exercise', 1)
+        }
+    ];
+}
+
+// Function to fetch recipes from a hypothetical API
+async function fetchRecipes() {
+    // Placeholder for fetching recipes logic
+    return [
+        {
+            title: "Quinoa Salad",
+            content: "A nutritious salad packed with protein and fiber.",
+            image: await fetchImages('quinoa', 1)
+        },
+        {
+            title: "Grilled Chicken",
+            content: "A simple and healthy grilled chicken recipe.",
+            image: await fetchImages('grilled chicken', 1)
+        }
+    ];
+}
+
+// Function to fetch videos from a hypothetical API
+async function fetchVideos() {
+    // Placeholder for fetching videos logic
+    return [
+        {
+            title: "Yoga for Beginners",
+            url: "https://www.youtube.com/watch?v=example1"
+        },
+        {
+            title: "Healthy Cooking Tips",
+            url: "https://www.youtube.com/watch?v=example2"
+        }
+    ];
+}

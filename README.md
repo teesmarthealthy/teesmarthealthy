@@ -2,37 +2,36 @@
 
 # Tee Smart Healthy
 
-Tee Smart Healthy is a health-focused website that provides users with a variety of resources related to health, wellness, and nutrition. The site features articles, healthy recipes, videos, and a contact page for inquiries.
+Tee Smart Healthy is a web application focused on health and wellness. It provides users with access to articles, recipes, videos, and a contact page for inquiries. The application fetches relevant content and images from the Pexels API to enhance the user experience.
 
 ## Project Structure
 
 ```
 teesmarthealthy
 ├── src
-│   ├── pages
-│   │   ├── home.html        # Homepage displaying featured images and links
-│   │   ├── articles.html    # Page for health-related articles
-│   │   ├── recipes.html     # Page showcasing healthy recipes
-│   │   ├── videos.html      # Page displaying health and wellness videos
-│   │   └── contact.html     # Contact information page
+│   ├── assets
+│   │   └── css
+│   │       └── style.css
 │   ├── js
-│   │   ├── api.js           # Functions to interact with the Pexels API
-│   │   ├── gallery.js       # Handles image display in gallery format
-│   │   └── main.js          # Main entry point for JavaScript functionality
-│   ├── css
-│   │   ├── style.css        # Main styles for the website
-│   │   └── layout.css       # Layout-specific styles for responsive design
-│   └── components
-│       ├── header.html      # Header structure included in all pages
-│       └── footer.html      # Footer structure included in all pages
-├── assets
-│   └── content
-│       ├── articles.json    # JSON array of articles with details
-│       └── recipes.json     # JSON array of recipes with details
-├── .env                     # Environment variables (e.g., Pexels API key)
-├── package.json             # npm configuration file
-└── README.md                # Project documentation
+│   │   ├── api.js
+│   │   ├── articles.js
+│   │   ├── recipes.js
+│   │   └── videos.js
+│   └── pages
+│       ├── articles.html
+│       ├── contact.html
+│       ├── recipes.html
+│       └── videos.html
+├── index.html
+└── README.md
 ```
+
+## Features
+
+- **Articles Page**: Displays the latest articles related to health and wellness, along with relevant images.
+- **Recipes Page**: Provides a collection of healthy recipes, including images and descriptions.
+- **Videos Page**: Showcases videos related to health topics, enhancing the learning experience.
+- **Contact Page**: Allows users to reach out via email for inquiries.
 
 ## Setup Instructions
 
@@ -46,26 +45,12 @@ teesmarthealthy
    cd teesmarthealthy
    ```
 
-3. Install dependencies:
-   ```
-   npm install
-   ```
+3. Open `index.html` in your web browser to view the application.
 
-4. Create a `.env` file in the root directory and add your Pexels API key:
-   ```
-   PEXELS_API_KEY=your_api_key_here
-   ```
+## API Integration
 
-5. Open `index.html` in your browser to view the project.
+The application utilizes the Pexels API to fetch images based on specific queries related to health, recipes, and wellness. Ensure you have a valid API key to access the image data.
 
-## Features
+## Contact
 
-- **Homepage**: Displays featured images and links to other sections.
-- **Articles**: Contains health-related articles with images and videos.
-- **Recipes**: Showcases healthy recipes with ingredients and instructions.
-- **Videos**: Displays health and wellness videos.
-- **Contact**: Provides contact information for inquiries.
-
-## License
-
-This project is licensed under the MIT License.
+For inquiries, please reach out via email: teesmarthealthy@gmail.com.

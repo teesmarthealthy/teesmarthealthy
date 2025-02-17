@@ -3,70 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความสุขภาพ - TeeSmartHealthy</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>บทความ - เว็บไซต์ดูแลสุขภาพ</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../js/api.js" defer></script>
+    <script src="../js/articles.js" defer></script>
 </head>
 <body>
     <header>
+        <h1>บทความเกี่ยวกับสุขภาพ</h1>
         <nav>
             <ul>
-                <li><a href="../../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความสุขภาพ</a></li>
-                <li><a href="recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
-                <li><a href="videos.html">วิดีโอสุขภาพ</a></li>
-                <li><a href="contact.html">ติดต่อเรา</a></li>
+                <li><a href="../index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="recipes.html">สูตรอาหาร</a></li>
+                <li><a href="videos.html">วิดีโอ</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section class="page-hero">
-            <h1>บทความสุขภาพ</h1>
-            <p>เรียนรู้เกี่ยวกับสุขภาพและการดูแลตัวเองผ่านบทความที่น่าสนใจ</p>
-        </section>
-
-        <section class="articles-categories">
-            <h2>หมวดหมู่บทความ</h2>
-            <div class="category-grid">
-                <!-- Categories will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="featured-articles">
-            <h2>บทความแนะนำ</h2>
-            <div id="articles-container" class="gallery-container">
-                <!-- Articles will be populated by JavaScript -->
-            </div>
-            <div class="load-more-container">
-                <button id="load-more" 
-                        class="load-more-btn"
-                        data-gallery-id="articles-container"
-                        data-search-query="healthy lifestyle">
-                    โหลดเพิ่มเติม
-                </button>
+        <section id="articles-section">
+            <h2>บทความล่าสุด</h2>
+            <div id="articles-gallery">
+                <!-- บทความจะถูกแสดงที่นี่ -->
             </div>
         </section>
     </main>
-
     <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-            </div>
-            <div class="social-links">
-                <h3>ติดตามเรา</h3>
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">YouTube</a>
-                <a href="#" target="_blank">Instagram</a>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2024 TeeSmartHealthy. All rights reserved.</p>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
-
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/gallery.js"></script>
-    <script type="module" src="../js/main.js"></script>
 </body>
 </html>

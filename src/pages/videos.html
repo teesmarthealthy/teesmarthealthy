@@ -1,79 +1,34 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeeSmartHealthy - สุขภาพดีเริ่มต้นที่นี่</title>
-    <link rel="stylesheet" href="src/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Videos - เว็บไซต์ดูแลสุขภาพ</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../js/api.js" defer></script>
+    <script src="../js/videos.js" defer></script>
 </head>
 <body>
     <header>
+        <h1>เว็บไซต์ดูแลสุขภาพ by tee smart healthy</h1>
         <nav>
             <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="src/pages/articles.html">บทความสุขภาพ</a></li>
-                <li><a href="src/pages/recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
-                <li><a href="src/pages/videos.html">วิดีโอสุขภาพ</a></li>
-                <li><a href="src/pages/contact.html">ติดต่อเรา</a></li>
+                <li><a href="../index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="recipes.html">สูตรอาหาร</a></li>
+                <li><a href="videos.html">วิดีโอ</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section class="hero">
-            <h1>ยินดีต้อนรับสู่ TeeSmartHealthy</h1>
-            <p>แหล่งรวมความรู้ด้านสุขภาพและไลฟ์สไตล์เพื่อชีวิตที่ดีกว่า</p>
-        </section>
-
-        <section class="featured-articles">
-            <h2>บทความแนะนำ</h2>
-            <div class="article-grid" id="featured-articles-container">
-                <!-- Articles will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="latest-recipes">
-            <h2>สูตรอาหารล่าสุด</h2>
-            <div class="recipe-grid" id="latest-recipes-container">
-                <!-- Recipes will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="health-videos">
-            <h2>วิดีโอสุขภาพแนะนำ</h2>
-            <div class="video-grid" id="featured-videos-container">
-                <!-- Videos will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="newsletter">
-            <h2>รับข่าวสารสุขภาพ</h2>
-            <form id="newsletter-form">
-                <input type="email" placeholder="กรอกอีเมลของคุณ" required>
-                <button type="submit">สมัครรับข่าวสาร</button>
-            </form>
+        <section id="video-gallery">
+            <h2>วิดีโอเกี่ยวกับสุขภาพ</h2>
+            <div id="videos"></div>
         </section>
     </main>
-
     <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-            </div>
-            <div class="social-links">
-                <h3>ติดตามเรา</h3>
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">YouTube</a>
-                <a href="#" target="_blank">Instagram</a>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2024 TeeSmartHealthy. All rights reserved.</p>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
-
-    <script type="module" src="src/js/api.js"></script>
-    <script type="module" src="src/js/gallery.js"></script>
-    <script type="module" src="src/js/main.js"></script>
 </body>
 </html>

@@ -1,83 +1,48 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิดีโอสุขภาพ - TeeSmartHealthy</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>เว็บไซต์ดูแลสุขภาพ</title>
+    <link rel="stylesheet" href="src/assets/css/style.css">
 </head>
 <body>
     <header>
+        <h1>เว็บไซต์ดูแลสุขภาพ by tee smart healthy</h1>
         <nav>
             <ul>
-                <li><a href="../../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความสุขภาพ</a></li>
-                <li><a href="recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
-                <li><a href="videos.html">วิดีโอสุขภาพ</a></li>
-                <li><a href="contact.html">ติดต่อเรา</a></li>
+                <li><a href="src/pages/index.html">หน้าแรก</a></li>
+                <li><a href="src/pages/articles.html">บทความ</a></li>
+                <li><a href="src/pages/recipes.html">สูตรอาหาร</a></li>
+                <li><a href="src/pages/videos.html">วิดีโอ</a></li>
+                <li><a href="src/pages/contact.html">ติดต่อ</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section class="page-hero">
-            <h1>วิดีโอสุขภาพ</h1>
-            <p>รวมวิดีโอให้ความรู้ด้านสุขภาพและการออกกำลังกาย</p>
+        <section id="featured-images">
+            <h2>ภาพเด่น</h2>
+            <div id="image-gallery">
+                </div>
         </section>
-
-        <section class="video-categories">
-            <h2>หมวดหมู่วิดีโอ</h2>
-            <div class="category-grid">
-                <div class="category-card" data-category="exercise">
-                    <img src="../assets/images/exercise.jpg" alt="การออกกำลังกาย">
-                    <h3>การออกกำลังกาย</h3>
+        <section id="articles">
+            <h2>บทความล่าสุด</h2>
+            <div id="article-content">
+                <p>บทความเกี่ยวกับการดูแลสุขภาพและการใช้ชีวิตอย่างมีสุขภาพดี...</p>
+                <div id="article-images">
+                    <!-- Images related to the article will be displayed here -->
                 </div>
-                <div class="category-card" data-category="nutrition">
-                    <img src="../assets/images/nutrition.jpg" alt="โภชนาการ">
-                    <h3>โภชนาการ</h3>
-                </div>
-                <div class="category-card" data-category="meditation">
-                    <img src="../assets/images/meditation.jpg" alt="การฝึกสมาธิ">
-                    <h3>การฝึกสมาธิ</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="featured-videos">
-            <h2>วิดีโอแนะนำ</h2>
-            <div id="video-gallery" class="gallery-container">
-                <!-- Videos will be populated by JavaScript -->
-            </div>
-            <div class="load-more-container">
-                <button id="load-more" 
-                        class="load-more-btn"
-                        data-gallery-id="video-gallery"
-                        data-search-query="health fitness">
-                    โหลดเพิ่มเติม
-                </button>
             </div>
         </section>
     </main>
-
     <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-            </div>
-            <div class="social-links">
-                <h3>ติดตามเรา</h3>
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">YouTube</a>
-                <a href="#" target="_blank">Instagram</a>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2024 TeeSmartHealthy. All rights reserved.</p>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
-
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/gallery.js"></script>
-    <script type="module" src="../js/main.js"></script>
+    <script src="src/js/api.js"></script>
+    <script src="src/js/articles.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const healthImages = await getPexelsImages('health');
+            displayImages(healthImages);
+        });
+    </script>
 </body>
 </html>

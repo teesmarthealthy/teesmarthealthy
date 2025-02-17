@@ -1,16 +1,56 @@
-.image-container {
-    display: inline-block; /* แสดงรูปภาพเรียงกันในแนวนอน */
-    margin: 10px; /* ระยะห่างระหว่างรูปภาพ */
-    width: 300px; /* ขนาดความกว้างของรูปภาพ */
-    overflow: hidden; /* ป้องกันรูปภาพล้นออกมา */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.image-container img {
-    width: 100%; /* ทำให้รูปภาพเต็ม container */
-    height: auto;
-    display: block; /* ป้องกันช่องว่างด้านล่างรูปภาพ */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
 #image-gallery {
-    text-align: center; /* จัดรูปภาพให้อยู่ตรงกลาง */
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+#image-gallery img {
+    width: 30%;
+    transition: transform 0.5s;
+}
+
+#image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+article {
+    margin: 20px 0;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s;
+}
+
+article img:hover {
+    opacity: 0.8;
 }

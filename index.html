@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeeSmartHealthy - สุขภาพดีเริ่มต้นที่นี่</title>
-    <link rel="stylesheet" href="src/css/style.css">
+    <title>วิดีโอสุขภาพ - TeeSmartHealthy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="src/pages/articles.html">บทความสุขภาพ</a></li>
-                <li><a href="src/pages/recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
-                <li><a href="src/pages/videos.html">วิดีโอสุขภาพ</a></li>
-                <li><a href="src/pages/contact.html">ติดต่อเรา</a></li>
+                <li><a href="../../index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความสุขภาพ</a></li>
+                <li><a href="recipes.html">สูตรอาหารเพื่อสุขภาพ</a></li>
+                <li><a href="videos.html">วิดีโอสุขภาพ</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>ยินดีต้อนรับสู่ TeeSmartHealthy</h1>
-            <p>แหล่งรวมความรู้ด้านสุขภาพและไลฟ์สไตล์เพื่อชีวิตที่ดีกว่า</p>
+        <section class="page-hero">
+            <h1>วิดีโอสุขภาพ</h1>
+            <p>รวมวิดีโอให้ความรู้ด้านสุขภาพและการออกกำลังกาย</p>
         </section>
 
-        <section class="featured-articles">
-            <h2>บทความแนะนำ</h2>
-            <div class="article-grid" id="featured-articles-container">
-                <!-- Articles will be populated by JavaScript -->
+        <section class="video-categories">
+            <h2>หมวดหมู่วิดีโอ</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="exercise">
+                    <img src="../assets/images/exercise.jpg" alt="การออกกำลังกาย">
+                    <h3>การออกกำลังกาย</h3>
+                </div>
+                <div class="category-card" data-category="nutrition">
+                    <img src="../assets/images/nutrition.jpg" alt="โภชนาการ">
+                    <h3>โภชนาการ</h3>
+                </div>
+                <div class="category-card" data-category="meditation">
+                    <img src="../assets/images/meditation.jpg" alt="การฝึกสมาธิ">
+                    <h3>การฝึกสมาธิ</h3>
+                </div>
             </div>
         </section>
 
-        <section class="latest-recipes">
-            <h2>สูตรอาหารล่าสุด</h2>
-            <div class="recipe-grid" id="latest-recipes-container">
-                <!-- Recipes will be populated by JavaScript -->
-            </div>
-        </section>
-
-        <section class="health-videos">
-            <h2>วิดีโอสุขภาพแนะนำ</h2>
-            <div class="video-grid" id="featured-videos-container">
+        <section class="featured-videos">
+            <h2>วิดีโอแนะนำ</h2>
+            <div id="video-gallery" class="gallery-container">
                 <!-- Videos will be populated by JavaScript -->
             </div>
-        </section>
-
-        <section class="newsletter">
-            <h2>รับข่าวสารสุขภาพ</h2>
-            <form id="newsletter-form">
-                <input type="email" placeholder="กรอกอีเมลของคุณ" required>
-                <button type="submit">สมัครรับข่าวสาร</button>
-            </form>
+            <div class="load-more-container">
+                <button id="load-more" 
+                        class="load-more-btn"
+                        data-gallery-id="video-gallery"
+                        data-search-query="health fitness">
+                    โหลดเพิ่มเติม
+                </button>
+            </div>
         </section>
     </main>
 
@@ -71,7 +76,8 @@
         <p class="copyright">&copy; 2024 TeeSmartHealthy. All rights reserved.</p>
     </footer>
 
-    <script src="src/js/api.js"></script>
-    <script src="src/js/main.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/gallery.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 </html>

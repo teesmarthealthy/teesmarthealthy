@@ -1,0 +1,45 @@
+[
+    {
+        "title": "Healthy Avocado Salad",
+        "ingredients": [
+            "2 ripe avocados",
+            "1 cup cherry tomatoes, halved",
+            "1/4 cup red onion, diced",
+            "1/4 cup cilantro, chopped",
+            "Juice of 1 lime",
+            "Salt and pepper to taste"
+        ],
+        "instructions": "1. Cut the avocados in half, remove the pit, and scoop the flesh into a bowl. 2. Add the cherry tomatoes, red onion, and cilantro. 3. Squeeze lime juice over the mixture and season with salt and pepper. 4. Gently toss to combine and serve immediately.",
+        "image": "https://images.pexels.com/photos/123456/pexels-photo-123456.jpeg",
+        "video": "https://www.youtube.com/watch?v=example1"
+    },
+    {
+        "title": "Quinoa and Black Bean Bowl",
+        "ingredients": [
+            "1 cup quinoa, rinsed",
+            "2 cups vegetable broth",
+            "1 can black beans, drained and rinsed",
+            "1 cup corn, frozen or fresh",
+            "1 red bell pepper, diced",
+            "1 avocado, diced",
+            "Lime wedges for serving"
+        ],
+        "instructions": "1. In a pot, combine quinoa and vegetable broth. Bring to a boil, then reduce heat and simmer for 15 minutes. 2. Fluff quinoa with a fork and let cool. 3. In a bowl, combine quinoa, black beans, corn, and red bell pepper. 4. Top with diced avocado and serve with lime wedges.",
+        "image": "https://images.pexels.com/photos/654321/pexels-photo-654321.jpeg",
+        "video": "https://www.youtube.com/watch?v=example2"
+    },
+    {
+        "title": "Grilled Chicken with Vegetables",
+        "ingredients": [
+            "2 chicken breasts",
+            "1 zucchini, sliced",
+            "1 bell pepper, sliced",
+            "1 tablespoon olive oil",
+            "Salt and pepper to taste",
+            "1 teaspoon Italian seasoning"
+        ],
+        "instructions": "1. Preheat the grill to medium-high heat. 2. Toss the vegetables with olive oil, salt, pepper, and Italian seasoning. 3. Grill the chicken for 6-7 minutes on each side until cooked through. 4. Grill the vegetables for 4-5 minutes until tender. Serve together.",
+        "image": "https://images.pexels.com/photos/789012/pexels-photo-789012.jpeg",
+        "video": "https://www.youtube.com/watch?v=example3"
+    }
+]

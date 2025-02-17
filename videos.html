@@ -1,9 +1,10 @@
-thy/videos.html -->
+videos.html -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="รวมวิดีโอสุขภาพ การออกกำลังกาย และอาหารเพื่อสุขภาพ - Tee Smart Healthy">
     <title>วิดีโอสุขภาพ - Tee Smart Healthy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,119 +12,87 @@ thy/videos.html -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="videos.css">
-    <!-- Add Font Awesome for better icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo-container">
-                <h1 class="site-title">Tee Smart Healthy</h1>
-                <p class="site-tagline">วิดีโอเพื่อสุขภาพที่ดี</p>
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">หน้าแรก</a></li>
-                    <li><a href="articles.html" class="nav-link">บทความสุขภาพ</a></li>
-                    <li><a href="recipes.html" class="nav-link">สูตรอาหารคลีน</a></li>
-                    <li><a href="videos.html" class="nav-link active">วิดีโอสุขภาพ</a></li>
-                    <li><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" aria-label="เมนูหลัก">
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+    <!-- ...existing header code... -->
 
     <main>
         <section class="video-hero" data-aos="fade-up">
             <div class="hero-content">
                 <h2>วิดีโอเพื่อสุขภาพที่ดี</h2>
-                <p>รวมวิดีโอสาระความรู้ด้านสุขภาพ การออกกำลังกาย และอาหารเพื่อสุขภาพ</p>
+                <p>แหล่งรวมวิดีโอคุณภาพด้านสุขภาพ การออกกำลังกาย โภชนาการ และการดูแลสุขภาพจิต</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToVideos()">
+                        <i class="fas fa-play-circle"></i> ดูวิดีโอ
+                    </button>
+                    <button class="btn btn-secondary" onclick="showCategories()">
+                        <i class="fas fa-th-list"></i> หมวดหมู่
+                    </button>
+                </div>
             </div>
         </section>
 
         <section class="video-categories" data-aos="fade-up">
+            <h2 class="section-title">หมวดหมู่วิดีโอ</h2>
             <div class="category-filters">
-                <button class="filter-btn active" data-category="all">ทั้งหมด</button>
-                <button class="filter-btn" data-category="exercise">ออกกำลังกาย</button>
-                <button class="filter-btn" data-category="nutrition">โภชนาการ</button>
-                <button class="filter-btn" data-category="meditation">สมาธิบำบัด</button>
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-globe"></i> ทั้งหมด
+                </button>
+                <button class="filter-btn" data-category="exercise">
+                    <i class="fas fa-running"></i> ออกกำลังกาย
+                </button>
+                <button class="filter-btn" data-category="nutrition">
+                    <i class="fas fa-utensils"></i> โภชนาการ
+                </button>
+                <button class="filter-btn" data-category="meditation">
+                    <i class="fas fa-spa"></i> สมาธิบำบัด
+                </button>
+                <button class="filter-btn" data-category="health-tips">
+                    <i class="fas fa-heart"></i> เคล็ดลับสุขภาพ
+                </button>
             </div>
         </section>
 
-        <section id="video-gallery" class="video-gallery" data-aos="fade-up">
-            <div id="videos" class="videos-grid"></div>
-            <div class="loading-spinner" id="loading-spinner">
-                <div class="spinner"></div>
-            </div>
-        </section>
-
-        <div id="video-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div id="modal-video-container"></div>
-                <div class="video-info">
-                    <h3 id="modal-title"></h3>
-                    <p id="modal-description"></p>
-                </div>
-            </div>
-        </div>
+        <!-- ...existing video gallery section... -->
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>เกี่ยวกับเรา</h3>
-                <p>Tee Smart Healthy แหล่งรวมวิดีโอสุขภาพคุณภาพ</p>
-            </div>
-            <div class="footer-section">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-                <div class="social-links">
-                    <!-- Social media icons -->
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Tee Smart Healthy - All rights reserved</p>
-        </div>
-    </footer>
+    <!-- ...existing footer code... -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
-    <script src="script.js"></script>
+    <script src="videos.js"></script>
     <script>
-        // Enhanced video functionality
-        const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane';
-        const videoGallery = document.getElementById('videos');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        const modal = document.getElementById('video-modal');
-
-        async function loadVideos(category = 'health') {
-            showLoading(true);
-            const videos = await getPexelsVideos(category);
-            displayVideos(videos);
-            showLoading(false);
-        }
-
-        function showLoading(show) {
-            loadingSpinner.style.display = show ? 'flex' : 'none';
-        }
-
-        // Initialize
-        AOS.init();
-        loadVideos();
-
-        // Event listeners for category filters
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                loadVideos(e.target.dataset.category);
-            });
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
         });
+
+        // Enhanced category functionality
+        const categories = {
+            all: 'วิดีโอทั้งหมด',
+            exercise: 'วิดีโอออกกำลังกาย',
+            nutrition: 'วิดีโอโภชนาการ',
+            meditation: 'วิดีโอสมาธิบำบัด',
+            'health-tips': 'เคล็ดลับสุขภาพ'
+        };
+
+        function scrollToVideos() {
+            document.getElementById('video-gallery').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function showCategories() {
+            document.querySelector('.video-categories').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Add video view tracking
+        function trackVideoView(videoId) {
+            // Implement video analytics
+            console.log(`Video viewed: ${videoId}`);
+        }
     </script>
 </body>
 </html>

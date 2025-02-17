@@ -1,84 +1,125 @@
+thy/videos.html -->
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>Health Videos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิดีโอสุขภาพ - Tee Smart Healthy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Health Videos by Tee Smart Healthy</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความ</a></li>
-                <li><a href="recipes.html">สูตรอาหาร</a></li>
-                <li><a href="videos.html">วิดีโอ</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <h1 class="site-title">Tee Smart Healthy</h1>
+                <p class="site-tagline">วิดีโอเพื่อสุขภาพที่ดี</p>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                    <li><a href="articles.html" class="nav-link">บทความสุขภาพ</a></li>
+                    <li><a href="recipes.html" class="nav-link">สูตรอาหารคลีน</a></li>
+                    <li><a href="videos.html" class="nav-link active">วิดีโอสุขภาพ</a></li>
+                    <li><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="เมนูหลัก">
+                    <span></span>
+                </button>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section id="video-gallery">
-            <h2>วิดีโอเพื่อสุขภาพ</h2>
-            <div id="videos"></div>
+        <section class="video-hero" data-aos="fade-up">
+            <div class="hero-content">
+                <h2>วิดีโอเพื่อสุขภาพที่ดี</h2>
+                <p>รวมวิดีโอสาระความรู้ด้านสุขภาพ การออกกำลังกาย และอาหารเพื่อสุขภาพ</p>
+            </div>
         </section>
+
+        <section class="video-categories" data-aos="fade-up">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">ทั้งหมด</button>
+                <button class="filter-btn" data-category="exercise">ออกกำลังกาย</button>
+                <button class="filter-btn" data-category="nutrition">โภชนาการ</button>
+                <button class="filter-btn" data-category="meditation">สมาธิบำบัด</button>
+            </div>
+        </section>
+
+        <section id="video-gallery" class="video-gallery" data-aos="fade-up">
+            <div id="videos" class="videos-grid"></div>
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+        </section>
+
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-video-container"></div>
+                <div class="video-info">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>เกี่ยวกับเรา</h3>
+                <p>Tee Smart Healthy แหล่งรวมวิดีโอสุขภาพคุณภาพ</p>
+            </div>
+            <div class="footer-section">
+                <h3>ติดต่อเรา</h3>
+                <p>Email: teesmarthealthy@gmail.com</p>
+                <div class="social-links">
+                    <!-- Social media icons -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tee Smart Healthy - All rights reserved</p>
+        </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
     <script src="script.js"></script>
     <script>
-        const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane'; // API key ของคุณ
+        // Enhanced video functionality
+        const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane';
         const videoGallery = document.getElementById('videos');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const modal = document.getElementById('video-modal');
 
-        async function getPexelsVideos(query, perPage = 6) {
-            try {
-                const response = await fetch(`https://api.pexels.com/videos/search?query=${query}&per_page=${perPage}`, {
-                    headers: {
-                        'Authorization': pexelsApiKey
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                return data.videos;
-            } catch (error) {
-                console.error("Error fetching videos:", error);
-                return [];
-            }
+        async function loadVideos(category = 'health') {
+            showLoading(true);
+            const videos = await getPexelsVideos(category);
+            displayVideos(videos);
+            showLoading(false);
         }
 
-        function displayVideos(videos) {
-            videoGallery.innerHTML = '';
+        function showLoading(show) {
+            loadingSpinner.style.display = show ? 'flex' : 'none';
+        }
 
-            videos.forEach(video => {
-                const videoContainer = document.createElement('div');
-                videoContainer.classList.add('video-container');
+        // Initialize
+        AOS.init();
+        loadVideos();
 
-                const title = document.createElement('h3');
-                title.textContent = video.title;
-
-                const videoElement = document.createElement('video');
-                videoElement.src = video.video_files[0].link;
-                videoElement.controls = true;
-                videoElement.width = 300;
-
-                const description = document.createElement('p');
-                description.textContent = video.description || 'No description available';
-
-                videoContainer.appendChild(title);
-                videoContainer.appendChild(videoElement);
-                videoContainer.appendChild(description);
-                videoGallery.appendChild(videoContainer);
+        // Event listeners for category filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                loadVideos(e.target.dataset.category);
             });
-        }
-
-        window.addEventListener('DOMContentLoaded', async () => {
-            const healthVideos = await getPexelsVideos('health');
-            displayVideos(healthVideos);
         });
     </script>
 </body>

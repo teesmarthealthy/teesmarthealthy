@@ -1,61 +1,118 @@
-.image-container {
-    display: inline-block; /* แสดงรูปภาพเรียงกันในแนวนอน */
-    margin: 10px; /* ระยะห่างระหว่างรูปภาพ */
-    width: 300px; /* ขนาดความกว้างของรูปภาพ */
-    overflow: hidden; /* ป้องกันรูปภาพล้นออกมา */
-}
-
-.image-container img {
-    width: 100%; /* ทำให้รูปภาพเต็ม container */
-    height: auto;
-    display: block; /* ป้องกันช่องว่างด้านล่างรูปภาพ */
-}
-
-#image-gallery {
-    text-align: center; /* จัดรูปภาพให้อยู่ตรงกลาง */
-}
-
-header {
-    background-color: #4CAF50; /* สีพื้นหลังของ header */
-    color: white; /* สีตัวอักษรใน header */
-    padding: 10px 0; /* ระยะห่างภายใน header */
-    text-align: center; /* จัดข้อความให้อยู่กลาง */
-}
-
-nav ul {
-    list-style-type: none; /* ลบจุดหน้ารายการ */
-    padding: 0; /* ลบระยะห่างภายใน */
-}
-
-nav ul li {
-    display: inline; /* แสดงรายการในแนวนอน */
-    margin: 0 15px; /* ระยะห่างระหว่างรายการ */
-}
-
-nav ul li a {
-    color: white; /* สีตัวอักษรของลิงก์ */
-    text-decoration: none; /* ลบขีดเส้นใต้ */
-}
-
-main {
-    padding: 20px; /* ระยะห่างภายใน main */
-}
-
-footer {
-    text-align: center; /* จัดข้อความใน footer ให้อยู่กลาง */
-    padding: 10px 0; /* ระยะห่างภายใน footer */
-    background-color: #f1f1f1; /* สีพื้นหลังของ footer */
-}
-
-h2 {
-    color: #4CAF50; /* สีหัวข้อ */
-}
-
-.article, .recipe, .video {
-    margin-bottom: 20px; /* ระยะห่างระหว่างแต่ละบทความ, สูตร, หรือวิดีโอ */
-}
-
-.article img, .recipe img, .video img {
-    max-width: 100%; /* ทำให้รูปภาพไม่เกินขนาดของ container */
-    height: auto; /* ปรับความสูงอัตโนมัติ */
-}
+/* Base styles */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --text-color: #333;
+    --bg-light: #f9f9f9;
+  }
+  
+  /* Animations */
+  @keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Typography */
+  body {
+    font-family: 'Kanit', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  /* Header & Navigation */
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Cards */
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    margin: 1rem;
+    transition: transform 0.3s ease;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image Gallery */
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .image-container img {
+    transition: transform 0.5s ease;
+  }
+  
+  .image-container:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card {
+      margin: 0.5rem;
+    }
+  }

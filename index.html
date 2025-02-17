@@ -2,18 +2,18 @@
 <html>
 <head>
     <title>เว็บไซต์ดูแลสุขภาพ</title>
-    <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>เว็บไซต์ดูแลสุขภาพ by tee smart healthy</h1>
         <nav>
             <ul>
-                <li><a href="src/pages/index.html">หน้าแรก</a></li>
-                <li><a href="src/pages/articles.html">บทความ</a></li>
-                <li><a href="src/pages/recipes.html">สูตรอาหาร</a></li>
-                <li><a href="src/pages/videos.html">วิดีโอ</a></li>
-                <li><a href="src/pages/contact.html">ติดต่อ</a></li>
+                <li><a href="#">หน้าแรก</a></li>
+                <li><a href="#">บทความ</a></li>
+                <li><a href="#">สูตรอาหาร</a></li>
+                <li><a href="#">วิดีโอ</a></li>
+                <li><a href="#">ติดต่อ</a></li>
             </ul>
         </nav>
     </header>
@@ -25,24 +25,11 @@
         </section>
         <section id="articles">
             <h2>บทความล่าสุด</h2>
-            <div id="article-content">
-                <p>บทความเกี่ยวกับการดูแลสุขภาพและการใช้ชีวิตอย่างมีสุขภาพดี...</p>
-                <div id="article-images">
-                    <!-- Images related to the article will be displayed here -->
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
     <footer>
         <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
-    <script src="src/js/api.js"></script>
-    <script src="src/js/articles.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', async () => {
-            const healthImages = await getPexelsImages('health');
-            displayImages(healthImages);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

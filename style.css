@@ -1,0 +1,16 @@
+.image-container {
+    display: inline-block; /* แสดงรูปภาพเรียงกันในแนวนอน */
+    margin: 10px; /* ระยะห่างระหว่างรูปภาพ */
+    width: 300px; /* ขนาดความกว้างของรูปภาพ */
+    overflow: hidden; /* ป้องกันรูปภาพล้นออกมา */
+}
+
+.image-container img {
+    width: 100%; /* ทำให้รูปภาพเต็ม container */
+    height: auto;
+    display: block; /* ป้องกันช่องว่างด้านล่างรูปภาพ */
+}
+
+#image-gallery {
+    text-align: center; /* จัดรูปภาพให้อยู่ตรงกลาง */
+}

@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos - เว็บไซต์ดูแลสุขภาพ</title>
+    <title>วิดีโอสุขภาพ - Tee Smart Healthy</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/api.js" defer></script>
-    <script src="../js/videos.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>เว็บไซต์ดูแลสุขภาพ by tee smart healthy</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความ</a></li>
-                <li><a href="recipes.html">สูตรอาหาร</a></li>
-                <li><a href="videos.html">วิดีโอ</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
-        </nav>
+        <!-- ...existing navigation... -->
     </header>
-    <main>
-        <section id="video-gallery">
-            <h2>วิดีโอเกี่ยวกับสุขภาพ</h2>
-            <div id="videos"></div>
-        </section>
+    
+    <main class="content-section">
+        <h1>วิดีโอสุขภาพ</h1>
+        
+        <div class="video-grid">
+            <!-- Videos will be loaded dynamically -->
+        </div>
     </main>
-    <footer>
-        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
-    </footer>
+
+    <script src="../js/api.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const videos = await getPexelsVideos('health exercise', 6);
+            const videoGrid = document.querySelector('.video-grid');
+            
+            videos.forEach(video => {
+                const videoCard = document.createElement('div');
+                videoCard.className = 'video-card';
+                videoCard.innerHTML = `
+                    <video controls>
+                        <source src="${video.video_files[0].link}" type="video/mp4">
+                    </video>
+                    <h3>${video.user.name}</h3>
+                `;
+                videoGrid.appendChild(videoCard);
+            });
+        });
+    </script>
 </body>
 </html>

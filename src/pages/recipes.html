@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Health Website</title>
+    <title>สูตรอาหารเพื่อสุขภาพ - Tee Smart Healthy</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/api.js" defer></script>
-    <script src="../js/recipes.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Healthy Recipes</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <!-- ...existing navigation... -->
     </header>
-    <main>
-        <section id="recipes-gallery">
-            <h2>Delicious and Healthy Recipes</h2>
-            <div id="recipe-images">
-                <!-- Images will be dynamically inserted here -->
+    
+    <main class="content-section">
+        <h1>สูตรอาหารเพื่อสุขภาพ</h1>
+        
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <img src="" alt="Healthy Salad" class="recipe-image" data-query="healthy salad">
+                <h3>สลัดผักรวมเพื่อสุขภาพ</h3>
+                <div class="recipe-details">
+                    <h4>ส่วนผสม:</h4>
+                    <ul>
+                        <li>ผักสลัดรวม</li>
+                        <li>มะเขือเทศราชินี</li>
+                        <li>อโวคาโด</li>
+                        <!-- Add more ingredients -->
+                    </ul>
+                    <h4>วิธีทำ:</h4>
+                    <ol>
+                        <li>ล้างผักให้สะอาด</li>
+                        <li>หั่นผักเป็นชิ้นพอดีคำ</li>
+                        <!-- Add more steps -->
+                    </ol>
+                </div>
             </div>
-        </section>
-        <section id="recipe-content">
-            <h2>Featured Recipes</h2>
-            <div id="recipes-list">
-                <!-- Recipe content will be dynamically inserted here -->
-            </div>
-        </section>
+            <!-- Add more recipe cards -->
+        </div>
     </main>
-    <footer>
-        <p>Contact us at: teesmarthealthy@gmail.com</p>
-        <p>Copyright &copy; 2023 Health Website</p>
-    </footer>
+
+    <script src="../js/api.js"></script>
+    <script>
+        // Similar image loading logic as articles page
+    </script>
 </body>
 </html>

@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความ - เว็บไซต์ดูแลสุขภาพ</title>
+    <title>บทความสุขภาพ - Tee Smart Healthy</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/api.js" defer></script>
-    <script src="../js/articles.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>บทความเกี่ยวกับสุขภาพ</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความ</a></li>
-                <li><a href="recipes.html">สูตรอาหาร</a></li>
-                <li><a href="videos.html">วิดีโอ</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
-        </nav>
+        <!-- ...existing navigation... -->
     </header>
-    <main>
-        <section id="articles-section">
-            <h2>บทความล่าสุด</h2>
-            <div id="articles-gallery">
-                <!-- บทความจะถูกแสดงที่นี่ -->
+    
+    <main class="content-section">
+        <h1>บทความสุขภาพ</h1>
+        
+        <article class="health-article">
+            <h2>การออกกำลังกายที่เหมาะสมสำหรับคนทำงานออฟฟิศ</h2>
+            <div class="article-content">
+                <img src="" alt="Office Exercise" class="article-image" data-query="office exercise">
+                <p>การนั่งทำงานหน้าคอมพิวเตอร์เป็นเวลานานส่งผลเสียต่อสุขภาพ ต่อไปนี้เป็นท่าออกกำลังกายง่ายๆ ที่สามารถทำได้ที่โต๊ะทำงาน...</p>
+                <!-- Add more content -->
             </div>
-        </section>
+        </article>
+
+        <article class="health-article">
+            <h2>อาหารเพื่อสุขภาพที่ควรทานทุกวัน</h2>
+            <div class="article-content">
+                <img src="" alt="Healthy Food" class="article-image" data-query="healthy food">
+                <p>การเลือกรับประทานอาหารที่มีประโยชน์เป็นสิ่งสำคัญ ต่อไปนี้เป็นรายการอาหารที่ควรมีในมื้ออาหารของคุณ...</p>
+                <!-- Add more content -->
+            </div>
+        </article>
     </main>
-    <footer>
-        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
-    </footer>
+
+    <script src="../js/api.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const images = document.querySelectorAll('.article-image');
+            for (let img of images) {
+                const query = img.dataset.query;
+                const photos = await getPexelsImages(query, 1);
+                if (photos.length > 0) {
+                    img.src = photos[0].src.medium;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

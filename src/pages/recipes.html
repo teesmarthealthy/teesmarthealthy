@@ -1,43 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Health Website</title>
+    <title>สูตรอาหารเพื่อสุขภาพ | Tee Smart Healthy</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/api.js" defer></script>
-    <script src="../js/recipes.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Healthy Recipes</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <!-- ...existing navigation... -->
     </header>
-    <main>
-        <section id="recipes-gallery">
-            <h2>Delicious and Healthy Recipes</h2>
-            <div id="recipe-images">
-                <!-- Images will be dynamically inserted here -->
+
+    <section class="recipe-hero">
+        <div class="recipe-categories">
+            <button class="category-btn active" data-category="all">ทั้งหมด</button>
+            <button class="category-btn" data-category="breakfast">อาหารเช้า</button>
+            <button class="category-btn" data-category="lunch">อาหารกลางวัน</button>
+            <button class="category-btn" data-category="dinner">อาหารเย็น</button>
+            <button class="category-btn" data-category="snacks">ของว่าง</button>
+        </div>
+    </section>
+
+    <main class="recipe-container">
+        <article class="recipe-card">
+            <div class="recipe-image">
+                <img src="" alt="Healthy Breakfast Bowl" data-query="healthy breakfast bowl">
+                <span class="recipe-tag">อาหารเช้า</span>
             </div>
-        </section>
-        <section id="recipe-content">
-            <h2>Featured Recipes</h2>
-            <div id="recipes-list">
-                <!-- Recipe content will be dynamically inserted here -->
+            <div class="recipe-details">
+                <h2>โบวล์อาหารเช้าเพื่อสุขภาพ</h2>
+                <div class="recipe-info">
+                    <span><i class="fas fa-clock"></i> 15 นาที</span>
+                    <span><i class="fas fa-fire"></i> 350 แคลอรี่</span>
+                    <span><i class="fas fa-user"></i> 1 ที่</span>
+                </div>
+                <div class="recipe-ingredients">
+                    <h3>ส่วนผสม</h3>
+                    <ul>
+                        <li>โยเกิร์ตกรีก 1 ถ้วย</li>
+                        <li>กราโนล่าโฮมเมด 3 ช้อนโต๊ะ</li>
+                        <li>ผลไม้ตามฤดูกาล 1 ถ้วย</li>
+                        <li>เมล็ดเจีย 1 ช้อนชา</li>
+                        <li>น้ำผึ้ง 1 ช้อนชา</li>
+                    </ul>
+                </div>
+                <div class="recipe-steps">
+                    <h3>วิธีทำ</h3>
+                    <ol>
+                        <li>เทโยเกิร์ตกรีกลงในชาม</li>
+                        <li>โรยกราโนล่าลงไป</li>
+                        <li>จัดเรียงผลไม้ให้สวยงาม</li>
+                        <li>โรยเมล็ดเจีย</li>
+                        <li>ราดน้ำผึ้งเป็นขั้นตอนสุดท้าย</li>
+                    </ol>
+                </div>
+                <div class="nutrition-info">
+                    <h3>คุณค่าทางโภชนาการ</h3>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item">
+                            <span>โปรตีน</span>
+                            <span>15g</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span>คาร์โบไฮเดรต</span>
+                            <span>45g</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span>ไขมัน</span>
+                            <span>12g</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span>ใยอาหาร</span>
+                            <span>8g</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </article>
+        <!-- More recipe cards will be added dynamically -->
     </main>
-    <footer>
-        <p>Contact us at: teesmarthealthy@gmail.com</p>
-        <p>Copyright &copy; 2023 Health Website</p>
-    </footer>
 </body>
 </html>

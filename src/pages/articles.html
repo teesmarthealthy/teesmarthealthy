@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>บทความ - เว็บไซต์ดูแลสุขภาพ</title>
+    <title>บทความสุขภาพ | Tee Smart Healthy</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../js/api.js" defer></script>
-    <script src="../js/articles.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>บทความเกี่ยวกับสุขภาพ</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">หน้าแรก</a></li>
-                <li><a href="articles.html">บทความ</a></li>
-                <li><a href="recipes.html">สูตรอาหาร</a></li>
-                <li><a href="videos.html">วิดีโอ</a></li>
-                <li><a href="contact.html">ติดต่อ</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <!-- ...existing navigation... -->
     </header>
-    <main>
-        <section id="articles-section">
-            <h2>บทความล่าสุด</h2>
-            <div id="articles-gallery">
-                <!-- บทความจะถูกแสดงที่นี่ -->
-            </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>บทความสุขภาพ</h1>
+            <p>เรื่องราวและความรู้เพื่อสุขภาพที่ดีกว่า</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="featured-article">
+            <article class="content-card">
+                <h2>การดูแลสุขภาพแบบองค์รวมในยุค 2024</h2>
+                <div class="article-meta">
+                    <span><i class="fas fa-user"></i> โดย ทีม Tee Smart Healthy</span>
+                    <span><i class="fas fa-calendar"></i> 17 กุมภาพันธ์ 2567</span>
+                </div>
+                <img src="" alt="Holistic Health" class="feature-image" data-query="holistic health">
+                <div class="article-content">
+                    <h3>เข้าใจการดูแลสุขภาพแบบองค์รวม</h3>
+                    <p>การดูแลสุขภาพแบบองค์รวมไม่ได้หมายถึงแค่การออกกำลังกายหรือการรับประทานอาหารที่ดีเท่านั้น 
+                    แต่ยังรวมถึงการดูแลสุขภาพจิตใจ การจัดการความเครียด และการสร้างความสมดุลในชีวิต</p>
+                    
+                    <h3>องค์ประกอบสำคัญของสุขภาพองค์รวม</h3>
+                    <ul>
+                        <li>การออกกำลังกายที่เหมาะสม</li>
+                        <li>การรับประทานอาหารที่มีประโยชน์</li>
+                        <li>การพักผ่อนที่เพียงพอ</li>
+                        <li>การจัดการความเครียด</li>
+                        <li>การมีความสัมพันธ์ที่ดีกับผู้อื่น</li>
+                    </ul>
+                    
+                    <!-- Add more detailed content -->
+                </div>
+            </article>
+        </section>
+
+        <section class="article-grid">
+            <!-- More articles will be dynamically loaded here -->
         </section>
     </main>
-    <footer>
-        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
-    </footer>
+
+    <script src="../js/api.js"></script>
+    <script>
+        // Advanced content loading and interaction logic
+    </script>
 </body>
 </html>

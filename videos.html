@@ -14,7 +14,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- ...existing header code... -->
+    <header>
+        <h1>วิดีโอสุขภาพ - Tee Smart Healthy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="recipes.html">สูตรอาหาร</a></li>
+                <li><a href="videos.html">วิดีโอ</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section class="video-hero" data-aos="fade-up">
@@ -67,8 +78,11 @@
         </div>
     </main>
 
-    <!-- ...existing footer code... -->
+    <footer>
+        <p>&copy; 2023 Tee Smart Healthy - All rights reserved</p>
+    </footer>
 
+    <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
     <script src="videos.js"></script>
     <script>
         // Initialize AOS
@@ -76,15 +90,6 @@
             duration: 800,
             once: true
         });
-
-        // Enhanced category functionality
-        const categories = {
-            all: 'วิดีโอทั้งหมด',
-            exercise: 'วิดีโอออกกำลังกาย',
-            nutrition: 'วิดีโอโภชนาการ',
-            meditation: 'วิดีโอสมาธิบำบัด',
-            'health-tips': 'เคล็ดลับสุขภาพ'
-        };
 
         function scrollToVideos() {
             document.getElementById('video-gallery').scrollIntoView({ 
@@ -96,12 +101,6 @@
             document.querySelector('.video-categories').scrollIntoView({ 
                 behavior: 'smooth' 
             });
-        }
-
-        // Add video view tracking
-        function trackVideoView(videoId) {
-            // Implement video analytics
-            console.log(`Video viewed: ${videoId}`);
         }
     </script>
 </body>

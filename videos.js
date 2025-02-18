@@ -1,3 +1,5 @@
+const pexelsApiKey = 'Ducjg6pUZm37ckuhio7CoWJ3FkqsGaWRu8Vf79RYoYqYf4Tn903qxane';
+
 const videoCategories = {
     exercise: 'workout fitness exercise',
     nutrition: 'healthy food cooking',
@@ -20,6 +22,7 @@ async function getPexelsVideos(category) {
 }
 
 function displayVideos(videos) {
+    const videoGallery = document.getElementById('video-gallery');
     videoGallery.innerHTML = '';
     videos.forEach(video => {
         const videoCard = createVideoCard(video);
@@ -61,6 +64,7 @@ function openVideoModal(video) {
         controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen']
     });
     
+    const modal = document.getElementById('modal');
     modal.style.display = 'flex';
 }
 
@@ -72,7 +76,25 @@ function formatDuration(seconds) {
 
 // Add modal close functionality
 document.querySelector('.close-modal').addEventListener('click', () => {
+    const modal = document.getElementById('modal');
     modal.style.display = 'none';
     const modalVideoContainer = document.getElementById('modal-video-container');
     modalVideoContainer.innerHTML = '';
+});
+
+// Fetch and display videos on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    const videos = await getPexelsVideos('all');
+    displayVideos(videos);
+
+    // Add event listeners for category filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            const category = e.target.dataset.category;
+            const videos = await getPexelsVideos(category);
+            displayVideos(videos);
+        });
+    });
 });

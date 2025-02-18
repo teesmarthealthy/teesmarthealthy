@@ -1,107 +1,33 @@
-thy/index.html -->
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tee Smart Healthy - เว็บไซต์เพื่อสุขภาพที่ดี</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>Healthy Recipes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo-container">
-                <h1 class="site-title">Tee Smart Healthy</h1>
-                <p class="site-tagline">เพื่อสุขภาพที่ดีของคุณ</p>
-            </div>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">หน้าแรก</a></li>
-                    <li><a href="articles.html" class="nav-link">บทความสุขภาพ</a></li>
-                    <li><a href="recipes.html" class="nav-link">สูตรอาหารคลีน</a></li>
-                    <li><a href="videos.html" class="nav-link">วิดีโอสุขภาพ</a></li>
-                    <li><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" aria-label="เมนูหลัก">
-                    <span></span>
-                </button>
-            </nav>
-        </div>
+    <header>
+        <h1>Healthy Recipes by Tee Smart Healthy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="articles.html">บทความ</a></li>
+                <li><a href="recipes.html">สูตรอาหาร</a></li>
+                <li><a href="videos.html">วิดีโอ</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
     </header>
-
     <main>
-        <!-- Hero Section -->
-        <section class="hero" data-aos="fade-up">
-            <div class="hero-content">
-                <h2>ยินดีต้อนรับสู่ Tee Smart Healthy</h2>
-                <p>แหล่งรวมความรู้ด้านสุขภาพ อาหารคลีน และการออกกำลังกายที่ถูกต้อง</p>
-                <a href="#featured" class="btn btn-primary">เริ่มต้นดูแลสุขภาพ</a>
-            </div>
-        </section>
-
-        <!-- Featured Section -->
-        <section id="featured" class="featured-section" data-aos="fade-up">
-            <h2 class="section-title">เรื่องเด่นวันนี้</h2>
-            <div class="featured-grid">
-                <!-- Dynamic content from JavaScript -->
-            </div>
-        </section>
-
-        <!-- Latest Articles -->
-        <section id="articles" class="articles-section" data-aos="fade-up">
-            <h2 class="section-title">บทความล่าสุด</h2>
-            <div class="articles-grid">
-                <article class="article-card" data-aos="fade-up">
-                    <div class="article-image">
-                        <img src="https://images.pexels.com/photos/3759658/pexels-photo-3759658.jpeg" alt="การดูแลสุขภาพจิต">
-                    </div>
-                    <div class="article-content">
-                        <h3>10 วิธีดูแลสุขภาพจิตในยุคดิจิทัล</h3>
-                        <p>เรียนรู้วิธีการดูแลสุขภาพจิตที่มีประสิทธิภาพ พร้อมเทคนิคการผ่อนคลายความเครียด...</p>
-                        <a href="#" class="btn btn-secondary">อ่านเพิ่มเติม</a>
-                    </div>
-                </article>
-                <!-- More articles -->
-            </div>
-        </section>
-
-        <!-- Newsletter Signup -->
-        <section class="newsletter-section" data-aos="fade-up">
-            <div class="newsletter-container">
-                <h2>รับข่าวสารสุขภาพ</h2>
-                <p>สมัครรับจดหมายข่าวเพื่อรับเคล็ดลับสุขภาพและข้อมูลที่เป็นประโยชน์</p>
-                <form id="newsletter-form" class="newsletter-form">
-                    <input type="email" placeholder="อีเมลของคุณ" required>
-                    <button type="submit" class="btn btn-primary">สมัครรับข่าวสาร</button>
-                </form>
+        <section id="recipes">
+            <h2>สูตรอาหารเพื่อสุขภาพ</h2>
+            <div id="content-gallery">
+                <!-- Content will be dynamically inserted here -->
             </div>
         </section>
     </main>
-
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>เกี่ยวกับเรา</h3>
-                <p>Tee Smart Healthy เว็บไซต์ที่รวบรวมข้อมูลด้านสุขภาพที่น่าเชื่อถือ</p>
-            </div>
-            <div class="footer-section">
-                <h3>ติดต่อเรา</h3>
-                <p>Email: teesmarthealthy@gmail.com</p>
-                <div class="social-links">
-                    <!-- Social media icons -->
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Tee Smart Healthy - All rights reserved</p>
-        </div>
+    <footer>
+        <p>Copyright &copy; 2023 เว็บไซต์ดูแลสุขภาพ</p>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
